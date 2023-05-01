@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cleaners</title>
+<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body>
+	<div class="layout" style="justify-content: flex-start;">
+		<div class="header" style="color: rgb(250, 150, 0);">
+			<h1>Cleaners</h1>
+			<input type="text" name="search" style="width: 50%; border-radius: 15px;">
+			<div>
+			<a href="User_profilePage.html"><button type="button" value="profile">profile</button></a>
+			<a href="User_cart.html"><button type="button" value="cart" style="margin-right:5px">cart</button></a>
+			</div>
+			<select name="itemsNo" id="itemsNo" onclick="sendData()">
+				<option value="5">5</option>
+				<option value="10" selected>10</option>
+				<option value="15">15</option>
+				<option value="20">20</option>
+			</select>
+			<div>
+				<button type="button" name="nextPage" onclick="nextPage(-1)">back</button>
+				<button type="button" name="nextPage" onclick="nextPage(1)">next</button>
+			</div>
+		</div>
+		<div id="itemsList" style="position: absolute; top: 40px; width: 100%;"></div>
+	</div>
+	<script>
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function(){
+		document.getElementById("itemsList").innerHTML = this.responseText;
+	}
+	xhttp.open("POST", "displayItems.jsp");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("category=Cleaning&pageNo=0");
+	
+	function sendData(){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			const yhttp = new XMLHttpRequest();
+			yhttp.onload = function(){
+				document.getElementById("itemsList").innerHTML = this.responseText;
+			}
+			yhttp.open("POST", "displayItems.jsp");
+			yhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			yhttp.send("category=Cleaning&pageNo=0");
+		}
+		xhttp.open("POST", "displayItems.jsp");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("itemsNo", document.getElementById("itemsNo").value);
+		xhttp.send("category=Cleaning&pageNo=0");
+	}
+	
+	function nextPage(inc){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			document.getElementById("itemsList").innerHTML = this.responseText;
+		}
+		xhttp.open("POST", "displayItems.jsp");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("category=Cleaning&pageNo="+inc);
+	}
+	</script>
+	<script src="addtoCart.js"></script>
+</body>
+</html>

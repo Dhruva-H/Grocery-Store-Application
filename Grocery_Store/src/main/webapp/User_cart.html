@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Cart</title>
+	<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body>
+	<div class="layout" style="justify-content: flex-start;">
+		<div class="header">
+			<a href="User_startPage.html"><button type="button">home</button></a>
+			<div><input type="text" id="search" style="width: 50%; border-radius: 15px;"><button onclick="search()">Search</button></div>
+			<a href="User_cart.html"><button type="button" value="cart" style="margin-right:5px">cart</button></a>
+		</div>
+		<div style="width: 100%;"><button onclick="checkout()">Check out</button></div>
+		<div id="itemsList" style="width: 100%;"></div>
+		<h3 style="color: orange; margin: 30px;">END OF LIST</h3>
+	</div>
+	<script>
+	const xhttp = new XMLHttpRequest;
+	xhttp.onload = function(){
+		document.getElementById("itemsList").innerHTML = this.responseText;
+	}
+	xhttp.open("POST", "displayCart.jsp");
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send();
+	
+	function checkout(){
+		const xhttp = new XMLHttpRequest;
+		xhttp.onload = function(){
+			document.getElementById("itemsList").innerHTML = this.responseText;
+		}
+		xhttp.open("POST", "cartHandler");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("method=checkout");
+	}
+	</script>
+</body>
+</html>

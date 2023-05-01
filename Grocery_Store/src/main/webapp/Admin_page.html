@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin</title>
+<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body>
+	<div class="layout">
+		<div class="header">
+			<h1 style="color: rgb(250, 112, 0);">Admin</h1>
+		</div>
+		<div class="box">
+			<form name="register" method="post" onsubmit="validate()"
+				action="userSignin">
+				<input type="hidden" name="formName" value="register">
+				<input type="hidden" name="category" value="Shopkeeper">
+				<div class="formLayout">
+					<div>
+						<p style="font-size: x-large;">Register Shopkeeper</p>
+						<div class="line">
+							<span></span>
+						</div>
+					</div>
+					<div>
+						<p style="font-size: medium;">Name:</p>
+						<input type="text" name="name" maxLength="100"
+							style="font-size: medium;"><br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Phone no.:</p>
+						<input type="text" name="ph_no" style="font-size: medium"><br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Email:</p>
+						<input type="text" name="email" style="font-size: medium"><br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Age:</p>
+						<input type="text" name="age" style="font-size: medium"><br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Address:</p>
+						<input type="radio" name="address" value="hyderabad"
+							style="font-size: medium;">Hyderabad<br> 
+						<input type="radio" name="address" value="pune"
+							style="font-size: medium;">Pune<br> 
+						<input type="radio" name="address" value="mumbai"
+							style="font-size: medium;">Mumbai<br> 
+						<input type="radio" name="address" value="delhi"
+							style="font-size: medium;">Delhi<br> 
+						<input type="radio" name="address" value="bangalore"
+							style="font-size: medium;">Bangalore<br> 
+						<input type="radio" name="address" value="lucknow"
+							style="font-size: medium;">Lucknow<br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Gender:</p>
+						<input type="radio" name="gender" value="M"
+							style="font-size: medium;">Male<br> 
+						<input type="radio" name="gender" value="F" 
+							style="font-size: medium;">Female<br>
+						<input type="radio" name="gender" value="O"
+							style="font-size: medium;">Other<br>
+						<input type="radio" name="gender" value="Company"
+							style="font-size: medium;">Company<br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Username:</p>
+						<input type="text" name="username" style="font-size: medium;"><br>
+					</div>
+					<div>
+						<p style="font-size: medium;">Password:</p>
+						<input type="text" name="Password" style="font-size: medium;"><br>
+					</div>
+					<input type="submit" value="Login" style="font-size: medium;">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

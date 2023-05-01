@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Report</title>
+<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body>
+	<div class="layout" style="justify-content: flex-start;">
+		<div class="header" style="color: rgb(250, 150, 0);">
+			<h1 style="margin-left: 5px;">Shopkeeper</h1>
+			<div>
+			<a href="Shopkeeper_page.html"><button type="button">Add</button></a>
+			<a href="Shopkeeper_productUpdatePage.html"><button type="button">Update</button></a>
+			<a href="Shopkeeper_reportPage.html"><button type="button">Report</button></a>
+			</div>
+			<div style="width: 200px;"></div>
+		</div>
+		<div class="box" style="padding: 10px; width: auto;">
+			<div class="header" style="color: rgb(250, 150, 0); border-radius: 10px; padding: 10px; width: 90%;">
+				<input type="date" id="startDate" style="background-color: rgb(250, 150, 0); border-radius: 10px; border-color: rgb(250, 150, 0);">
+				<input type="date" id="endDate" style="background-color: rgb(250, 150, 0); border-radius: 10px; border-color: rgb(250, 150, 0);">
+				<button type="button" onclick="getReport()">Get Report</button>
+			</div>
+			<div id="reportList" ></div>
+		</div>
+	</div>
+	<script>
+	function getReport(){
+		const xhttp = new XMLHttpRequest;
+		xhttp.onload = function(){
+			document.getElementById("reportList").innerHTML = this.responseText;
+		}
+		xhttp.open("POST", "report.jsp");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("sDate", document.getElementById("startDate").value);
+		xhttp.setRequestHeader("eDate", document.getElementById("endDate").value);
+		xhttp.send();
+	}
+	</script>
+</body>
+</html>

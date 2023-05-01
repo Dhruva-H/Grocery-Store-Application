@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login</title>
+<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background-color: rgb(106, 177, 245);">
+	<div class="layout" style="justify-content: center; height: 100%;">
+		<div class="box">
+			<form name="login" method="post" onsubmit="validate()" action="userSignin">
+				<input type="hidden" name="formName" value="login">
+				<div class="formLayout">
+				<div>
+					<p style="font-size: x-large;">Login</p>
+					<div class="line"><span></span></div>
+				</div>
+				<div>
+					<p style="font-size: x-large;">Username:</p>
+					<input type="text" name="Username" style="font-size: x-large;"><br>
+				</div>
+				<div>
+					<p style="font-size: x-large;">Password:</p>
+					<input type="password" name="Password" style="font-size: x-large;"><br>
+				</div>
+					<input type="submit" value="Login" style="font-size: large;">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

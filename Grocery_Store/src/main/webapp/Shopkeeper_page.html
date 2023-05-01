@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Home</title>
+	<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+
+<body style="color: rgb(19, 39, 66);">
+	<div class="layout" style="justify-content: flex-start;">
+		<!--######################## Header ########################-->
+		<div class="header" style="color: rgb(250, 150, 0);">
+			<h1 style="margin-left: 5px;">Shopkeeper</h1>
+			<div>
+			<a href="Shopkeeper_page.html"><button type="button">Add</button></a>
+			<a href="Shopkeeper_productUpdatePage.html"><button type="button">Update</button></a>
+			<a href="Shopkeeper_reportPage.html"><button type="button">Report</button></a>
+			</div>
+			<div style="width: 200px;"></div>
+		</div>
+		<!--######################## Home ########################-->
+		<div class="box" style="width: 70%; height:fit-content; padding: 10px;">
+			<div class="flex" style="flex-direction: column; justify-content: space-between; align-items: center;">
+				<form name="insert" method="post" action="ProductsModification">
+					<input type="hidden" name="formType" value="insert">
+					<div class="formLayout">
+						<div>
+							<p style="font-size: x-large;">Name:<br>
+								<input type="text" name="name" style="font-size: x-large;">
+							</p>
+						</div>
+						<div>
+							<p style="font-size: x-large;">Description:<br>
+								<input type="text" name="description" style="font-size: x-large;">
+							</p>
+						</div>
+						<div>
+							<p style="font-size: x-large;">Quantity:<br>
+								<input type="text" name="quantity" style="font-size: x-large;">
+							</p>
+						</div>
+						<div>
+							<p style="font-size: x-large;">Price:<br>
+								<input type="text" name="price" style="font-size: x-large;">
+							</p>
+						</div>
+						<div>
+							<p style="font-size: x-large;">Image URL:<br>
+								<input type="text" name="image" style="font-size: x-large;">
+							</p>
+						</div>
+						<div>
+							<p style="font-size: x-large;">Category:<br>
+								<input type="radio" name="category" value="Food" style="font-size: x-large;">Food<br>
+								<input type="radio" name="category" value="Vegetables" style="font-size: x-large;">Vegetables<br>
+								<input type="radio" name="category" value="Cleaning" style="font-size: x-large;">Cleaners<br>
+								<input type="radio" name="category" value="Groceries" style="font-size: x-large;">Groceries<br>
+								<input type="radio" name="category" value="Stationary" style="font-size: x-large;">Stationary<br>
+							</p>
+						</div>
+						<input type="submit" value="submit" name="submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

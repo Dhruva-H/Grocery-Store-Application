@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Shopkeeper</title>
+<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+<body>
+	<div class="layout" style="justify-content: flex-start;">
+		<div class="header" style="color: rgb(250, 150, 0);">
+			<h1 style="margin-left: 5px;">Shopkeeper</h1>
+			<div>
+			<a href="Shopkeeper_page.html"><button type="button">Add</button></a>
+			<a href="Shopkeeper_productUpdatePage.html"><button type="button">Update</button></a>
+			<a href="Shopkeeper_reportPage.html"><button type="button">Report</button></a>
+			</div>
+			<div style="width: 200px;"></div>
+		</div>
+		<div id="itemsList" style="position: absolute; top: 40px; width: 100%;"></div>
+	</div>
+	<script>
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function(){
+		document.getElementById("itemsList").innerHTML = this.responseText;
+	}
+	xhttp.open("POST", "itemList.jsp");
+	xhttp.send();
+	
+	</script>
+	<script>
+	function deleteProduct(ID){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			const yhttp = new XMLHttpRequest();
+			yhttp.onload = function(){
+				document.getElementById("itemsList").innerHTML = this.responseText;
+			}
+			yhttp.open("POST", "itemList.jsp");
+			yhttp.send();
+		}
+		xhttp.open("POST", "ProductsModification");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("itemID", ID);
+		xhttp.send("method=delete");
+	}
+	
+	function updateProduct(quantity, ID){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			const yhttp = new XMLHttpRequest();
+			yhttp.onload = function(){
+				document.getElementById("itemsList").innerHTML = this.responseText;
+			}
+			yhttp.open("POST", "itemList.jsp");
+			yhttp.send();
+		}
+		xhttp.open("POST", "ProductsModification");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("itemID", ID);
+		xhttp.setRequestHeader("quantity", quantity);
+		xhttp.send("method=update");
+	}
+	
+	function updatePrice(price, ID){
+		const xhttp = new XMLHttpRequest();
+		xhttp.onload = function(){
+			const yhttp = new XMLHttpRequest();
+			yhttp.onload = function(){
+				document.getElementById("itemsList").innerHTML = this.responseText;
+			}
+			yhttp.open("POST", "itemList.jsp");
+			yhttp.send();
+		}
+		xhttp.open("POST", "ProductsModification");
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader("itemID", ID);
+		xhttp.setRequestHeader("price", price);
+		xhttp.send("method=updatePrice");
+	}
+	</script>
+</body>
+</html>

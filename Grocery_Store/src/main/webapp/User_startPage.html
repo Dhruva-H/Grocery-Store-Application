@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="Stylesheet" href="Stylesheet1.css">
+</head>
+
+<body>
+<div class="layout" style="	justify-content: flex-start;">
+<!--########################### Header ###########################-->
+	<div class="header">
+		<div style="width: 100px;"></div>
+		<div><input type="text" id="search" style="width: 50%; border-radius: 15px;"><button onclick="search()">Search</button></div>
+		<a href="User_cart.html"><button type="button" value="cart" style="margin-right:5px">cart</button></a>
+	</div>
+	<div id="container">
+		<a href="Food_page.html"><div class="card" style="display: center; justify-content: center; align-items: center;"><h2>Food</h2></div></a>
+		<a href="Veg_page.html"><div class="card" style="display: center; justify-content: center; align-items: center;"><h2>Vegetables</h2></div></a>
+		<a href="Cleaners_page.html"><div class="card" style="display: center; justify-content: center; align-items: center;"><h2>Cleaning</h2></div></a>
+		<a href="Stationary_page.html"><div class="card" style="display: center; justify-content: center; align-items: center;"><h2>Stationary</h2></div></a>
+		<a href="Groceries_page.html"><div class="card" style="display: center; justify-content: center; align-items: center;"><h2>Groceries</h2></div></a>
+	</div>
+	<div id="searchList"></div>
+</div>
+<script>
+function search(){
+	const xhttp = new XMLHttpRequest;
+	xhttp.onload = function(){
+		document.getElementById("searchList").innerHTML = this.responseText;
+	}
+	xhttp.open("POST", "itemsSearch.jsp");
+	xhttp.setRequestHeader("key", document.getElementById("search").value);
+	xhttp.send();
+}
+</script>
+<script src="addtoCart.js"></script>
+</body>
+
+</html>
